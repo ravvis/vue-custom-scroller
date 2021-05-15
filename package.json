@@ -1,6 +1,6 @@
 {
   "name": "@vuetility/vue-custom-scroller",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/vue-custom-scroller.ssr.js",
   "browser": "dist/vue-custom-scroller.esm.js",
   "module": "dist/vue-custom-scroller.esm.js",
