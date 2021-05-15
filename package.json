@@ -1,19 +1,15 @@
 {
-  "name": "vue-custom-scroller",
-  "version": "1.0.0",
-  "description": "",
-
+  "name": "@vuetility/vue-custom-scroller",
+  "version": "0.0.1",
   "main": "dist/vue-custom-scroller.ssr.js",
   "browser": "dist/vue-custom-scroller.esm.js",
   "module": "dist/vue-custom-scroller.esm.js",
   "unpkg": "dist/vue-custom-scroller.min.js",
-
   "files": [
     "dist/*",
     "src/**/*.vue"
   ],
   "sideEffects": false,
-
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.js",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
@@ -21,10 +17,7 @@
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
-
-  "dependencies": {
-  },
-
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
@@ -48,5 +41,16 @@
   },
   "engines": {
     "node": ">=12"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/singh-ravi-siso/vue-custom-scroller.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/singh-ravi-siso/vue-custom-scroller/issues"
+  },
+  "homepage": "https://github.com/singh-ravi-siso/vue-custom-scroller#readme",
+  "description": "A customizable Vue scroller component 📜 📦"
 }

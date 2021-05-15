@@ -1,0 +1,124 @@
+<template>
+  <div class="b-custom-scroller--wrapper" v-if="!onlyShowIfOverflowing || to_show">
+    <label>
+      <input
+        class="b-custom-scroller"
+        v-if="reference"
+        ref="input"
+        type="range"
+        :min="min"
+        :max="max"
+        :step="step"
+        @input="changeMainScroll"
+        v-model="value"
+      >
+    </label>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return{
+      reference:null,
+      value:0,
+      to_show: true,
+    }
+  },
+  props: {
+    min: {
+      type: Number,
+      default: 0,
+    },
+    max: {
+      type: Number,
+      default: 100,
+    },
+    step: {
+      type: Number,
+      default: 0.5
+    },
+    onlyShowIfOverflowing: {
+      type: Boolean,
+      default: true
+    },
+    targetElement: {
+      type: String,
+      required: true
+    }
+  },
+  mounted(){
+    this.$nextTick(()=>{
+      this.setReference();
+      this.setValue();
+      this.setThumbWidth();
+      this.setToShow()
+    })
+  },
+  updated(){
+    window.addEventListener('scroll',()=>{
+      this.setValue();
+      this.setThumbWidth();
+      this.setToShow()
+    },true)
+  },
+  computed: {
+    getFractionToScroll(){
+      return (this.reference.clientWidth / this.reference.scrollWidth) ;
+    },
+    getWidthToScroll(){
+      return (this.reference.scrollWidth - this.reference.clientWidth) ;
+    },
+  },
+  methods:{
+    setThumbWidth(){
+      if(this.$el && this.$el.style){
+        this.$el.style.setProperty("--slider-thumb-width", `${this.getFractionToScroll * 100}%`);
+      }
+    },
+    setToShow(){
+      this.$set(this, 'to_show', this.getFractionToScroll < 1)
+    },
+    setReference(){
+      this.reference = this.$parent.$refs[this.targetElement]
+    },
+    setValue(){
+      this.value = Math.floor(( this.reference.scrollLeft * 100 ) / this.getWidthToScroll)
+    },
+    changeMainScroll(){
+      this.reference.scrollLeft = this.value * this.getWidthToScroll / 100
+      this.setThumbWidth();
+      this.setToShow()
+    },
+  }
+}
+</script>
+
+<style scoped>
+:root{
+  --slider-thumb-width : 90%;
+}
+ .b-custom-scroller {
+  width: 200px;
+  outline: none;
+  -webkit-appearance: none;
+   background: #EBEBEB;
+   border-radius: 4px;
+  cursor: pointer;
+}
+ .b-custom-scroller::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   border: 1px solid #D74848;
+   height: 5px;
+   width: var(--slider-thumb-width);
+   cursor: pointer;
+   background: #ED3232;
+   border-radius: 4px;
+   box-shadow: 1px 1px 1px #D74848, 0px 0px 1px #D74848;
+ }
+ .b-custom-scroller::-webkit-slider-thumb:hover {
+   height: 7px;
+   margin-top: -1px;
+   border-radius: 8px;
+ }
+</style>
