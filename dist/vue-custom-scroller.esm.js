@@ -1,20 +1,5 @@
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+import Vue from 'vue';
+
 //
 var script = {
   data() {
@@ -72,13 +57,17 @@ var script = {
 
     getWidthToScroll() {
       return this.reference.scrollWidth - this.reference.clientWidth;
+    },
+
+    isTargetAVueComponent() {
+      return this.$parent.$refs[this.targetElement] instanceof Vue;
     }
 
   },
   methods: {
     setThumbWidth() {
       if (this.$el && this.$el.style) {
-        this.$el.style.setProperty("--slider-thumb-width", `${this.getFractionToScroll * 100}%`);
+        typeof this.$el.style.setProperty("--slider-thumb-width", `${this.getFractionToScroll * 100}%`);
       }
     },
 
@@ -87,7 +76,7 @@ var script = {
     },
 
     setReference() {
-      this.reference = this.$parent.$refs[this.targetElement];
+      this.reference = this.isTargetAVueComponent ? this.$parent.$refs[this.targetElement].$el : this.$parent.$refs[this.targetElement];
     },
 
     setValue() {
@@ -276,8 +265,8 @@ var __vue_staticRenderFns__ = [];
 
 const __vue_inject_styles__ = function (inject) {
   if (!inject) return;
-  inject("data-v-47c4444a_0", {
-    source: "[data-v-47c4444a]:root{--slider-thumb-width:90%}.b-custom-scroller[data-v-47c4444a]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.b-custom-scroller[data-v-47c4444a]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #d74848;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#ed3232;border-radius:4px;box-shadow:1px 1px 1px #d74848,0 0 1px #d74848}.b-custom-scroller[data-v-47c4444a]::-webkit-slider-thumb:hover{height:7px;margin-top:-1px;border-radius:8px}",
+  inject("data-v-40cde6e2_0", {
+    source: "[data-v-40cde6e2]:root{--slider-thumb-width:90%}.b-custom-scroller[data-v-40cde6e2]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.b-custom-scroller[data-v-40cde6e2]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #233242;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#233242;border-radius:4px;box-shadow:1px 1px 1px #233242,0 0 1px #233242}",
     map: undefined,
     media: undefined
   });
@@ -285,7 +274,7 @@ const __vue_inject_styles__ = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__ = "data-v-47c4444a";
+const __vue_scope_id__ = "data-v-40cde6e2";
 /* module identifier */
 
 const __vue_module_identifier__ = undefined;

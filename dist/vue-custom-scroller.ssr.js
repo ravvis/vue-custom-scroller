@@ -1,4 +1,20 @@
-'use strict';function _slicedToArray(arr, i) {
+'use strict';var Vue=require('vue');function _interopDefaultLegacy(e){return e&&typeof e==='object'&&'default'in e?e:{'default':e}}var Vue__default=/*#__PURE__*/_interopDefaultLegacy(Vue);function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
@@ -55,25 +71,7 @@ function _arrayLikeToArray(arr, len) {
 
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var script = {
+}var script = {
   data: function data() {
     return {
       reference: null,
@@ -133,19 +131,22 @@ var script = {
     },
     getWidthToScroll: function getWidthToScroll() {
       return this.reference.scrollWidth - this.reference.clientWidth;
+    },
+    isTargetAVueComponent: function isTargetAVueComponent() {
+      return this.$parent.$refs[this.targetElement] instanceof Vue__default['default'];
     }
   },
   methods: {
     setThumbWidth: function setThumbWidth() {
       if (this.$el && this.$el.style) {
-        this.$el.style.setProperty("--slider-thumb-width", "".concat(this.getFractionToScroll * 100, "%"));
+        _typeof(this.$el.style.setProperty("--slider-thumb-width", "".concat(this.getFractionToScroll * 100, "%")));
       }
     },
     setToShow: function setToShow() {
       this.$set(this, 'to_show', this.getFractionToScroll < 1);
     },
     setReference: function setReference() {
-      this.reference = this.$parent.$refs[this.targetElement];
+      this.reference = this.isTargetAVueComponent ? this.$parent.$refs[this.targetElement].$el : this.$parent.$refs[this.targetElement];
     },
     setValue: function setValue() {
       this.value = Math.floor(this.reference.scrollLeft * 100 / this.getWidthToScroll);
@@ -282,7 +283,7 @@ var __vue_render__ = function __vue_render__() {
 
   return !_vm.onlyShowIfOverflowing || _vm.to_show ? _c('div', {
     staticClass: "b-custom-scroller--wrapper"
-  }, [_vm._ssrNode("<label data-v-47c4444a>" + (_vm.reference ? "<input type=\"range\"" + _vm._ssrAttr("min", _vm.min) + _vm._ssrAttr("max", _vm.max) + _vm._ssrAttr("step", _vm.step) + _vm._ssrAttr("value", _vm.value) + " class=\"b-custom-scroller\" data-v-47c4444a>" : "<!---->") + "</label>")]) : _vm._e();
+  }, [_vm._ssrNode("<label data-v-40cde6e2>" + (_vm.reference ? "<input type=\"range\"" + _vm._ssrAttr("min", _vm.min) + _vm._ssrAttr("max", _vm.max) + _vm._ssrAttr("step", _vm.step) + _vm._ssrAttr("value", _vm.value) + " class=\"b-custom-scroller\" data-v-40cde6e2>" : "<!---->") + "</label>")]) : _vm._e();
 };
 
 var __vue_staticRenderFns__ = [];
@@ -290,8 +291,8 @@ var __vue_staticRenderFns__ = [];
 
 var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-47c4444a_0", {
-    source: "[data-v-47c4444a]:root{--slider-thumb-width:90%}.b-custom-scroller[data-v-47c4444a]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.b-custom-scroller[data-v-47c4444a]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #d74848;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#ed3232;border-radius:4px;box-shadow:1px 1px 1px #d74848,0 0 1px #d74848}.b-custom-scroller[data-v-47c4444a]::-webkit-slider-thumb:hover{height:7px;margin-top:-1px;border-radius:8px}",
+  inject("data-v-40cde6e2_0", {
+    source: "[data-v-40cde6e2]:root{--slider-thumb-width:90%}.b-custom-scroller[data-v-40cde6e2]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.b-custom-scroller[data-v-40cde6e2]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #233242;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#233242;border-radius:4px;box-shadow:1px 1px 1px #233242,0 0 1px #233242}",
     map: undefined,
     media: undefined
   });
@@ -299,10 +300,10 @@ var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
 /* scoped */
 
 
-var __vue_scope_id__ = "data-v-47c4444a";
+var __vue_scope_id__ = "data-v-40cde6e2";
 /* module identifier */
 
-var __vue_module_identifier__ = "data-v-47c4444a";
+var __vue_module_identifier__ = "data-v-40cde6e2";
 /* functional template */
 
 var __vue_is_functional_template__ = false;
