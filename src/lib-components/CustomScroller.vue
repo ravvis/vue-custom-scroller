@@ -35,10 +35,6 @@ export default {
       type: Number,
       default: 100,
     },
-    step: {
-      type: Number,
-      default: 0.5
-    },
     onlyShowIfOverflowing: {
       type: Boolean,
       default: true
@@ -46,7 +42,11 @@ export default {
     targetElement: {
       type: String,
       required: true
-    }
+    },
+    step: {
+      type: Number,
+      default: 0.5
+    },
   },
   mounted(){
     this.$nextTick(()=>{

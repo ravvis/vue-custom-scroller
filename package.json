@@ -46,7 +46,15 @@
     "type": "git",
     "url": "git+https://github.com/singh-ravi-siso/vue-custom-scroller.git"
   },
-  "author": "",
+  "keywords": [
+    "custom-scroller",
+    "custom-scrollbar",
+    "scroller",
+    "scrollbar",
+    "vue",
+    "vuejs"
+  ],
+  "author": "Ravindra Singh <ravindras.sisodiya@gmail.com> (https://github.com/singh-ravi-siso)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/singh-ravi-siso/vue-custom-scroller/issues"
