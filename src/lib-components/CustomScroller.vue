@@ -112,17 +112,12 @@ export default {
 }
  .b-custom-scroller::-webkit-slider-thumb {
    -webkit-appearance: none;
-   border: 1px solid #D74848;
+   border: 1px solid #233242;
    height: 5px;
    width: var(--slider-thumb-width);
    cursor: pointer;
-   background: #ED3232;
+   background: #233242;
    border-radius: 4px;
-   box-shadow: 1px 1px 1px #D74848, 0px 0px 1px #D74848;
- }
- .b-custom-scroller::-webkit-slider-thumb:hover {
-   height: 7px;
-   margin-top: -1px;
-   border-radius: 8px;
+   box-shadow: 1px 1px 1px #233242, 0 0 1px #233242;
  }
 </style>
