@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 export default {
   data(){
     return{
@@ -69,18 +70,21 @@ export default {
     getWidthToScroll(){
       return (this.reference.scrollWidth - this.reference.clientWidth) ;
     },
+    isTargetAVueComponent(){
+      return this.$parent.$refs[this.targetElement] instanceof Vue;
+    }
   },
   methods:{
     setThumbWidth(){
       if(this.$el && this.$el.style){
-        this.$el.style.setProperty("--slider-thumb-width", `${this.getFractionToScroll * 100}%`);
+    typeof    this.$el.style.setProperty("--slider-thumb-width", `${this.getFractionToScroll * 100}%`);
       }
     },
     setToShow(){
       this.$set(this, 'to_show', this.getFractionToScroll < 1)
     },
     setReference(){
-      this.reference = this.$parent.$refs[this.targetElement]
+      this.reference = this.isTargetAVueComponent ? this.$parent.$refs[this.targetElement].$el : this.$parent.$refs[this.targetElement];
     },
     setValue(){
       this.value = Math.floor(( this.reference.scrollLeft * 100 ) / this.getWidthToScroll)
