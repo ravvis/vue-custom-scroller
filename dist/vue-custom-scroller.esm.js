@@ -19,10 +19,6 @@ var script = {
       type: Number,
       default: 100
     },
-    step: {
-      type: Number,
-      default: 0.5
-    },
     onlyShowIfOverflowing: {
       type: Boolean,
       default: true
@@ -30,6 +26,10 @@ var script = {
     targetElement: {
       type: String,
       required: true
+    },
+    step: {
+      type: Number,
+      default: 0.5
     }
   },
 
@@ -265,8 +265,8 @@ var __vue_staticRenderFns__ = [];
 
 const __vue_inject_styles__ = function (inject) {
   if (!inject) return;
-  inject("data-v-40cde6e2_0", {
-    source: "[data-v-40cde6e2]:root{--slider-thumb-width:90%}.b-custom-scroller[data-v-40cde6e2]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.b-custom-scroller[data-v-40cde6e2]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #233242;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#233242;border-radius:4px;box-shadow:1px 1px 1px #233242,0 0 1px #233242}",
+  inject("data-v-2e726876_0", {
+    source: "[data-v-2e726876]:root{--slider-thumb-width:90%}.b-custom-scroller[data-v-2e726876]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.b-custom-scroller[data-v-2e726876]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #233242;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#233242;border-radius:4px;box-shadow:1px 1px 1px #233242,0 0 1px #233242}",
     map: undefined,
     media: undefined
   });
@@ -274,7 +274,7 @@ const __vue_inject_styles__ = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__ = "data-v-40cde6e2";
+const __vue_scope_id__ = "data-v-2e726876";
 /* module identifier */
 
 const __vue_module_identifier__ = undefined;
