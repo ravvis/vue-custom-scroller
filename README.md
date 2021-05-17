@@ -104,11 +104,11 @@ export default {
     ></custom-scroller>
     ...
 </template>
-<style lang="scss">
-.custom-class {
+<style scoped>
+>>> .custom-class {
     /*...styles here...*/
 }
-.custom-class::-webkit-slider-thumb {
+>>> .custom-class::-webkit-slider-thumb {
     /*...styles here...*/
 }
 </style>
