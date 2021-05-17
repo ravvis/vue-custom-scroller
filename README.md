@@ -39,7 +39,7 @@ This will make **&lt;custom-scroller&gt;** available to all components within yo
 
 ### Local
 
-Include the carousel directly into your component using import:
+Include the custom scroller directly into your component using import:
 
 ``` js
 <script>
