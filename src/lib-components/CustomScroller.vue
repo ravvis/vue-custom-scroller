@@ -1,8 +1,9 @@
 <template>
-  <div class="b-custom-scroller--wrapper" v-if="!onlyShowIfOverflowing || to_show">
+  <div v-if="!onlyShowIfOverflowing || to_show">
     <label>
       <input
-        class="b-custom-scroller"
+        class="v-vuetility__vue-custom-scroller"
+        :class="[customClass]"
         v-if="reference"
         ref="input"
         type="range"
@@ -47,6 +48,9 @@ export default {
       type: Number,
       default: 0.5
     },
+    customClass: {
+      type: String,
+    }
   },
   mounted(){
     this.$nextTick(()=>{
@@ -77,7 +81,7 @@ export default {
   methods:{
     setThumbWidth(){
       if(this.$el && this.$el.style){
-    typeof    this.$el.style.setProperty("--slider-thumb-width", `${this.getFractionToScroll * 100}%`);
+        this.$el.style.setProperty("--slider-thumb-width", `${this.getFractionToScroll * 100}%`);
       }
     },
     setToShow(){
@@ -102,7 +106,7 @@ export default {
 :root{
   --slider-thumb-width : 90%;
 }
- .b-custom-scroller {
+ .v-vuetility__vue-custom-scroller {
   width: 200px;
   outline: none;
   -webkit-appearance: none;
@@ -110,7 +114,7 @@ export default {
    border-radius: 4px;
   cursor: pointer;
 }
- .b-custom-scroller::-webkit-slider-thumb {
+ .v-vuetility__vue-custom-scroller::-webkit-slider-thumb {
    -webkit-appearance: none;
    border: 1px solid #233242;
    height: 5px;

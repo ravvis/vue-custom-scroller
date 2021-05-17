@@ -66,6 +66,43 @@ export default {
 |:----------------------------|:--------|:--------|:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
 | targetElement               | String  | true    |         | ref of the element to scroll, it can be an HTMLElement or a VueComponent
 | onlyShowIfOverflowing       | Boolean | false   | true    | Only show scroller if the target element overflows
+| customClass                 | String  | false   |         | class name to override the scroller styles(find the default styles attached below)
+
+### Default styles
+
+```scss
+.v-vuetility__vue-custom-scroller {
+    width: 200px;
+    outline: none;
+    -webkit-appearance: none;
+    background: #EBEBEB;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.v-vuetility__vue-custom-scroller::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #233242;
+    height: 5px;
+    width: var(--slider-thumb-width);
+    cursor: pointer;
+    background: #233242;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px #233242, 0 0 1px #233242;
+}
+```
+
+#### Default styles can be overridden by passing the custom class name as a prop, like this:
+
+```html
+<style lang="scss" scoped>
+.custom-class {
+    /*...styles here...*/
+}
+.custom-class::-webkit-slider-thumb {
+    /*...styles here...*/
+}
+</style>
+```
 
 ## Demo
 
