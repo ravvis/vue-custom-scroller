@@ -30,6 +30,9 @@ var script = {
     step: {
       type: Number,
       default: 0.5
+    },
+    customClass: {
+      type: String
     }
   },
 
@@ -67,7 +70,7 @@ var script = {
   methods: {
     setThumbWidth() {
       if (this.$el && this.$el.style) {
-        typeof this.$el.style.setProperty("--slider-thumb-width", `${this.getFractionToScroll * 100}%`);
+        this.$el.style.setProperty("--slider-thumb-width", `${this.getFractionToScroll * 100}%`);
       }
     },
 
@@ -231,9 +234,7 @@ var __vue_render__ = function () {
 
   var _c = _vm._self._c || _h;
 
-  return !_vm.onlyShowIfOverflowing || _vm.to_show ? _c('div', {
-    staticClass: "b-custom-scroller--wrapper"
-  }, [_c('label', [_vm.reference ? _c('input', {
+  return !_vm.onlyShowIfOverflowing || _vm.to_show ? _c('div', [_c('label', [_vm.reference ? _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -241,7 +242,8 @@ var __vue_render__ = function () {
       expression: "value"
     }],
     ref: "input",
-    staticClass: "b-custom-scroller",
+    staticClass: "v-vuetility__vue-custom-scroller",
+    class: [_vm.customClass],
     attrs: {
       "type": "range",
       "min": _vm.min,
@@ -265,8 +267,8 @@ var __vue_staticRenderFns__ = [];
 
 const __vue_inject_styles__ = function (inject) {
   if (!inject) return;
-  inject("data-v-2e726876_0", {
-    source: "[data-v-2e726876]:root{--slider-thumb-width:90%}.b-custom-scroller[data-v-2e726876]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.b-custom-scroller[data-v-2e726876]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #233242;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#233242;border-radius:4px;box-shadow:1px 1px 1px #233242,0 0 1px #233242}",
+  inject("data-v-782eb48f_0", {
+    source: "[data-v-782eb48f]:root{--slider-thumb-width:90%}.v-vuetility__vue-custom-scroller[data-v-782eb48f]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.v-vuetility__vue-custom-scroller[data-v-782eb48f]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #233242;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#233242;border-radius:4px;box-shadow:1px 1px 1px #233242,0 0 1px #233242}",
     map: undefined,
     media: undefined
   });
@@ -274,7 +276,7 @@ const __vue_inject_styles__ = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__ = "data-v-2e726876";
+const __vue_scope_id__ = "data-v-782eb48f";
 /* module identifier */
 
 const __vue_module_identifier__ = undefined;

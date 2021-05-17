@@ -1,20 +1,4 @@
-'use strict';var Vue=require('vue');function _interopDefaultLegacy(e){return e&&typeof e==='object'&&'default'in e?e:{'default':e}}var Vue__default=/*#__PURE__*/_interopDefaultLegacy(Vue);function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _slicedToArray(arr, i) {
+'use strict';var Vue=require('vue');function _interopDefaultLegacy(e){return e&&typeof e==='object'&&'default'in e?e:{'default':e}}var Vue__default=/*#__PURE__*/_interopDefaultLegacy(Vue);function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
@@ -71,7 +55,8 @@ function _arrayLikeToArray(arr, len) {
 
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}var script = {
+}//
+var script = {
   data: function data() {
     return {
       reference: null,
@@ -99,6 +84,9 @@ function _nonIterableRest() {
     step: {
       type: Number,
       default: 0.5
+    },
+    customClass: {
+      type: String
     }
   },
   mounted: function mounted() {
@@ -139,7 +127,7 @@ function _nonIterableRest() {
   methods: {
     setThumbWidth: function setThumbWidth() {
       if (this.$el && this.$el.style) {
-        _typeof(this.$el.style.setProperty("--slider-thumb-width", "".concat(this.getFractionToScroll * 100, "%")));
+        this.$el.style.setProperty("--slider-thumb-width", "".concat(this.getFractionToScroll * 100, "%"));
       }
     },
     setToShow: function setToShow() {
@@ -281,9 +269,7 @@ var __vue_render__ = function __vue_render__() {
 
   var _c = _vm._self._c || _h;
 
-  return !_vm.onlyShowIfOverflowing || _vm.to_show ? _c('div', {
-    staticClass: "b-custom-scroller--wrapper"
-  }, [_vm._ssrNode("<label data-v-2e726876>" + (_vm.reference ? "<input type=\"range\"" + _vm._ssrAttr("min", _vm.min) + _vm._ssrAttr("max", _vm.max) + _vm._ssrAttr("step", _vm.step) + _vm._ssrAttr("value", _vm.value) + " class=\"b-custom-scroller\" data-v-2e726876>" : "<!---->") + "</label>")]) : _vm._e();
+  return !_vm.onlyShowIfOverflowing || _vm.to_show ? _c('div', [_vm._ssrNode("<label data-v-782eb48f>" + (_vm.reference ? "<input type=\"range\"" + _vm._ssrAttr("min", _vm.min) + _vm._ssrAttr("max", _vm.max) + _vm._ssrAttr("step", _vm.step) + _vm._ssrAttr("value", _vm.value) + _vm._ssrClass("v-vuetility__vue-custom-scroller", [_vm.customClass]) + " data-v-782eb48f>" : "<!---->") + "</label>")]) : _vm._e();
 };
 
 var __vue_staticRenderFns__ = [];
@@ -291,8 +277,8 @@ var __vue_staticRenderFns__ = [];
 
 var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-2e726876_0", {
-    source: "[data-v-2e726876]:root{--slider-thumb-width:90%}.b-custom-scroller[data-v-2e726876]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.b-custom-scroller[data-v-2e726876]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #233242;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#233242;border-radius:4px;box-shadow:1px 1px 1px #233242,0 0 1px #233242}",
+  inject("data-v-782eb48f_0", {
+    source: "[data-v-782eb48f]:root{--slider-thumb-width:90%}.v-vuetility__vue-custom-scroller[data-v-782eb48f]{width:200px;outline:0;-webkit-appearance:none;background:#ebebeb;border-radius:4px;cursor:pointer}.v-vuetility__vue-custom-scroller[data-v-782eb48f]::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #233242;height:5px;width:var(--slider-thumb-width);cursor:pointer;background:#233242;border-radius:4px;box-shadow:1px 1px 1px #233242,0 0 1px #233242}",
     map: undefined,
     media: undefined
   });
@@ -300,10 +286,10 @@ var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
 /* scoped */
 
 
-var __vue_scope_id__ = "data-v-2e726876";
+var __vue_scope_id__ = "data-v-782eb48f";
 /* module identifier */
 
-var __vue_module_identifier__ = "data-v-2e726876";
+var __vue_module_identifier__ = "data-v-782eb48f";
 /* functional template */
 
 var __vue_is_functional_template__ = false;
