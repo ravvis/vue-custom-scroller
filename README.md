@@ -94,7 +94,17 @@ export default {
 #### Default styles can be overridden by passing the custom class name as a prop, like this:
 
 ```html
-<style lang="scss" scoped>
+<template>
+    ...
+    <custom-scroller 
+        targetElement="targetEl" 
+        customClass="custom-class"
+        onlyShowIfOverflowing
+        step="0.7"
+    ></custom-scroller>
+    ...
+</template>
+<style lang="scss">
 .custom-class {
     /*...styles here...*/
 }
