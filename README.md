@@ -42,6 +42,7 @@ This will make **&lt;custom-scroller&gt;** available to all components within yo
 Include the carousel directly into your component using import:
 
 ``` js
+<script>
 import { CustomScroller } from '@vuetility/vue-custom-scroller';
 
 export default {
@@ -51,7 +52,15 @@ export default {
   }
   ...
 };
+</script>
+<template>
+  ...
+    <scrollable-element ref="targetEl"></scrollable-element> /* some scrollable element(component) */
+    <custom-scroller targetElement="targetEl"/>
+  ...
+</template>
 ```
+
 ### Props
 | Property                    | Type    | Required | Default | Description                                                                                                                                                                                                                                                                           |
 |:----------------------------|:--------|:--------|:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
